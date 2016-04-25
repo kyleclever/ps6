@@ -1,11 +1,11 @@
 package domain;
 
 import java.util.Date;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.UUID;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import util.LocalDateAdapter;
-import javafx.beans.property.ObjectProperty;
+//import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+//import util.LocalDateAdapter;
+//import javafx.beans.property.ObjectProperty;
 
 public class PersonDomainModel {
 
@@ -14,22 +14,21 @@ public class PersonDomainModel {
 	private String street;
 	private Integer postalCode;
 	private String city;
-	private ObjectProperty<LocalDate> birthday;
+	// private ObjectProperty<LocalDate> birthday;
+	private Date birthday;
 	private UUID PersonID;
-
-
 
 	/**
 	 * Default constructor.
 	 */
+
 	public UUID getPersonID() {
-		return PersonID;
+		return this.PersonID;
 	}
-	
+
 	public void setPersonID(UUID PersonID) {
-		this.PersonID = PersonID;
+		this.PersonID = UUID.randomUUID();
 	}
-	
 
 	public String getFirstName() {
 		return firstName;
@@ -71,15 +70,25 @@ public class PersonDomainModel {
 		this.city = city;
 	}
 
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)
-	public LocalDate getBirthday() {
-		return birthday.get();
-	}
+	// @XmlJavaTypeAdapter(LocalDateAdapter.class)
+	// public LocalDate getBirthday() {
+	// return birthday.get();
+	// }
+	//
+	// public void setBirthday(LocalDate birthday) {
+	// this.birthday.set(birthday);
+	// }
+	// public ObjectProperty<LocalDate> birthdayProperty(){
+	// return birthday;
+	// }
 
-	public void setBirthday(LocalDate birthday) {
-		this.birthday.set(birthday);
-	}
-	public ObjectProperty<LocalDate> birthdayProperty(){
+	public Date getBirthday() {
+		
 		return birthday;
 	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
 }

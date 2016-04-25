@@ -3,6 +3,7 @@ package ch.makery.address.util;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Date;
 
 /**
  * Helper functions for handling dates.
@@ -12,7 +13,7 @@ import java.time.format.DateTimeParseException;
 public class DateUtil {
 
     /** The date pattern that is used for conversion. Change as you wish. */
-    private static final String DATE_PATTERN = "dd.MM.yyyy";
+    private static final String DATE_PATTERN = "MM.dd.yyyy";
 
     /** The date formatter. */
     private static final DateTimeFormatter DATE_FORMATTER = 
@@ -25,6 +26,7 @@ public class DateUtil {
      * @param date the date to be returned as a string
      * @return formatted string
      */
+    
     public static String format(LocalDate date) {
         if (date == null) {
             return null;
@@ -59,4 +61,9 @@ public class DateUtil {
         // Try to parse the String.
         return DateUtil.parse(dateString) != null;
     }
+
+	public static String format(Date birthday) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
