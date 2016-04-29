@@ -21,8 +21,8 @@ public class Student_Test {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {		
-		Date DOB2 = new SimpleDateFormat("MM.dd.YYYY").parse("10.11.2010");
-//		//sample2 = new StudentDomainModel();
+//		Date DOB2 = new SimpleDateFormat("MM.dd.YYYY").parse("10.11.2010");
+//		sample2 = new StudentDomainModel();
 //		sample2.setFirstName("David");
 //		sample2.setMiddleName("Anne");
 //		sample2.setLastName("Kim");

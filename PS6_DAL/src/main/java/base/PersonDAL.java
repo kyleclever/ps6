@@ -11,7 +11,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import domain.PersonDomainModel;
-import domain.StudentDomainModel;
 import util.HibernateUtil;
 
 public class PersonDAL {
@@ -84,6 +83,7 @@ public class PersonDAL {
 			if (tx != null)
 				tx.rollback();
 			e.printStackTrace();
+			
 		} finally {
 			session.close();
 		}

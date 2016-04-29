@@ -2,7 +2,6 @@ package base;
 
 import static org.junit.Assert.*;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -73,16 +72,16 @@ public class Person_Test {
 	{		
 		PersonDomainModel per1;		
 		per1 = PersonDAL.getPerson(sample1.getPersonID());		
-		//assertNull("The Person shouldn't have been in the database",per1);	
+		assertNull("The Person shouldn't have been in the database",per1);	
 		
 		PersonDAL.addPerson(sample1);			
 		per1 = PersonDAL.getPerson(sample1.getPersonID());
 		System.out.println(sample1.getPersonID() + " found");
-		//assertNotNull("The Person should have been added to the database",per1);
+		assertNotNull("The Person should have been added to the database",per1);
 		
 		PersonDAL.deletePerson(sample1.getPersonID());
 		per1 = PersonDAL.getPerson(sample1.getPersonID());		
-		//assertNull("The Person shouldn't have been in the database",per1);	
+		assertNull("The Person shouldn't have been in the database",per1);	
 		
 	}
 	
