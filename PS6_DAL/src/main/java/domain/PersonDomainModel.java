@@ -21,6 +21,10 @@ public class PersonDomainModel {
 	/**
 	 * Default constructor.
 	 */
+	public  PersonDomainModel()
+	{
+		PersonID = UUID.randomUUID();
+	}
 
 	public UUID getPersonID() {
 		return this.PersonID;
