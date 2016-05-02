@@ -72,13 +72,14 @@ public class PersonDAL {
 		try {
 			tx = session.beginTransaction();	
 									
-			Query query = session.createQuery("from PersonDomainModel where personId = :id ");
-			query.setParameter("id", perID.toString());
+			Query query = session.createQuery("from PersonDomainModel where PersonID = :id ");
+			query.setParameter("id", perID);
 			
-			List<?> list = query.list();
-			perGet = (PersonDomainModel)list.get(0);
+			perGet = (PersonDomainModel) query.list().get(0);
 			
 			tx.commit();
+		} catch (IndexOutOfBoundsException ex) {
+			perGet = null;
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
@@ -100,6 +101,11 @@ public class PersonDAL {
 			tx = session.beginTransaction();	
 									
 			PersonDomainModel per = (PersonDomainModel) session.get(PersonDomainModel.class, perID);
+			
+			if (per == null) {
+				return;
+			}
+			
 			session.delete(per);
 		
 			
